@@ -1,0 +1,35 @@
+name: {{name}}
+version: '0.1.0'
+category: {{category}}{{^category}}Web{{/category}}
+author: {{author-name}}{{^author-name}}Author name here{{/author-name}}
+maintainer: {{author-email}}{{^author-email}}example@example.com{{/author-email}}
+copyright: {{copyright}}{{^copyright}}{{year}}{{^year}}2017{{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}
+license: BSD3
+github: {{github-username}}{{^github-username}}githubuser{{/github-username}}/{{name}}
+
+dependencies:
+- base >=4.7 && <5
+ghc-options:
+- -Wall
+- -threaded
+- -rtsopts
+- -with-rtsopts=-N
+
+library:
+  source-dirs: src
+
+executables:
+  {{name}}:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+    - {{name}}
+
+tests:
+  {{name}}-test:
+    main: Spec.hs
+    source-dirs: test
+    dependencies:
+    - {{name}}
+    - hspec
+
